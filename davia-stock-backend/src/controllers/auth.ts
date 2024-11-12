@@ -88,7 +88,7 @@ export const changePassword = async (req: Request, res: Response) => {
 	if (newPassword.length < 6) {
 		return res.status(400).json({ message: "La nueva contraseña debe tener al menos 6 caracteres." });
 	}
-	
+
 	try{
 		const userRepository = AppDataSource.getRepository(User);
 		const user = await userRepository.findOne({ where: { email } });
